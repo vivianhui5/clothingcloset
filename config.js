@@ -1,15 +1,19 @@
 const siteConfig = {
     "www.urbanoutfitters.com": {
+      cartItemSelector: ".c-pwa-cart-item",
       itemSelector: ".c-pwa-item-title a",
-      brandSelector: ".item-brand",
       imageSelector: ".c-pwa-cart-image img.o-pwa-item-thumbnail__image",
+      imageAttribute: 'src',
+      removeSelectors: ["span.c-pwa-screen-reader-only"],
       brandName: "Urban Outfitters"
     },
     "shop.lululemon.com": {
-      itemSelector: ".another-item-title a",
-      brandSelector: ".another-brand",
-      imageSelector: ".another-cart-image img.another-item-thumbnail__image",
-      brandName: "Lulu Lemon"
+      cartItemSelector: "article.product_product__MKVKh",
+      itemSelector: "button.product_titleButton__e6Iao",
+      imageSelector: 'img[data-lulu-attributes][data-testid="not-lazy-image"]',
+      imageAttribute: 'srcset',
+      removeSelectors: [],
+      brandName: "Lululemon"
     }
   };
   
