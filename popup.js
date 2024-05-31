@@ -44,11 +44,10 @@ function extractCartInfo() {
 
   cartItems.forEach(cartItem => {
     const nameElement = cartItem.querySelector(itemSelector);
-    const nameText = nameElement ? nameElement.textContent.trim() : 'Unknown';
+    const name = nameElement ? nameElement.childNodes[0].textContent.trim() : 'Unknown';
 
     const imageElement = cartItem.querySelector(imageSelector);
 
-    const name = nameElement ? nameElement.childNodes[0].textContent.trim() : 'Unknown';
 
     let imageUrl;
     if (imageElement) {
