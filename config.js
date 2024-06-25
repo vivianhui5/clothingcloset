@@ -14,6 +14,14 @@ const siteConfig = {
       imageAttribute: 'srcset',
       removeSelectors: [],
       brandName: "Lululemon"
+    },
+    "www.zara.com": {
+      cartItemSelector: "div.shop-cart-item", // Updated selector for individual product item in the cart
+      itemSelector: "div.shop-cart-item-header__description", // Selector for the product name
+      imageSelector: "div.shop-cart-item__image-container img", // Updated selector for the product image
+      imageAttribute: "src", // Attribute to get the image URL
+      removeSelectors: [], // Selectors to be removed (if any)
+      brandName: "Zara"
     }
   };
   
