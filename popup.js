@@ -48,7 +48,6 @@ function extractCartInfo() {
 
     const imageElement = cartItem.querySelector(imageSelector);
 
-
     let imageUrl;
     if (imageElement) {
       if (imageAttribute === 'src') {
@@ -65,15 +64,28 @@ function extractCartInfo() {
 
     console.log('Item:', { name, brand, imageUrl }); // Log the extracted data
 
-    cartData.push({ name, brand, imageUrl });
+    // Add default values for favorite and categories
+    cartData.push({ 
+      name, 
+      brand, 
+      imageUrl, 
+      favorite: false, // default value 
+      categories: [] // default empty array 
+    });
   });
 
   return cartData;
 }
 
 function convertToCSV(data) {
-  const header = ['Name', 'Brand', 'Image URL'];
-  const rows = data.map(item => [item.name, item.brand, item.imageUrl]);
+  const header = ['Name', 'Brand', 'Image URL', 'Favorite', 'Categories'];
+  const rows = data.map(item => [
+    item.name, 
+    item.brand, 
+    item.imageUrl, 
+    item.favorite, 
+    item.categories.join(';') // Join categories array to a single string separated by semicolons
+  ]);
 
   const csvContent = [header, ...rows].map(e => e.join(",")).join("\n");
   return csvContent;
